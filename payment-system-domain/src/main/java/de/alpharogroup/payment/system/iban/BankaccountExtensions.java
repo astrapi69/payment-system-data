@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import de.alpharogroup.collections.MapExtensions;
+import de.alpharogroup.resourcebundle.locale.LocaleResolver;
 import de.alpharogroup.string.StringExtensions;
 import lombok.experimental.ExtensionMethod;
 
@@ -61,7 +62,7 @@ public class BankaccountExtensions
 				return false;
 			}
 			// locale is not valid
-			if (!isISOCountryCode(locale))
+			if (!LocaleResolver.isISOCountryCode(locale))
 			{
 				return false;
 			}
@@ -88,7 +89,7 @@ public class BankaccountExtensions
 	 *            The code to check.
 	 * @return true if the code is valide otherwise false.
 	 */
-	private static boolean isISOCountryCode(String code)
+	protected static boolean isISOCountryCode(String code)
 	{
 		if (code.length() == 2)
 		{
