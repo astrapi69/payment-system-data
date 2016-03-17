@@ -15,6 +15,7 @@
 
 	<modules>
 		<module>payment-system-domain</module>
+		<module>payment-system-entities</module>
 	</modules>
 
 	<dependencyManagement>
