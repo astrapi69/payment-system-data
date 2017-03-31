@@ -1,3 +1,27 @@
+/**
+ * The MIT License
+ *
+ * Copyright (C) 2015 Asterios Raptis
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *  *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *  *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 package de.alpharogroup.payment.system.iban;
 
 import org.testng.AssertJUnit;
@@ -11,8 +35,7 @@ import org.testng.annotations.Test;
  * @version 1.0
  * @author Asterios Raptis
  */
-public class BankaccountExtensionsTest
-{
+public class BankaccountExtensionsTest {
 
 	/** The valide iban for tests. */
 	private String valideIban;
@@ -30,14 +53,14 @@ public class BankaccountExtensionsTest
 	private String deLocale;
 
 	/**
-	 * Sets up method will be invoked before every unit test method in this class.
+	 * Sets up method will be invoked before every unit test method in this
+	 * class.
 	 *
 	 * @throws Exception
 	 *             the exception
 	 */
 	@BeforeMethod
-	protected void setUp() throws Exception
-	{
+	protected void setUp() throws Exception {
 		this.valideIban = "AT782032017000303657";
 		this.invalideIban = "AT82032017000303657";
 		this.atLocale = "AT";
@@ -45,25 +68,26 @@ public class BankaccountExtensionsTest
 	}
 
 	/**
-	 * Tear down method will be invoked after every unit test method in this class.
+	 * Tear down method will be invoked after every unit test method in this
+	 * class.
 	 *
 	 * @throws Exception
 	 *             the exception
 	 */
 	@AfterMethod
-	protected void tearDown() throws Exception
-	{
+	protected void tearDown() throws Exception {
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.iban.BankaccountExtensions#isIbanNumber(java.lang.String)}.
+	 * Test method for
+	 * {@link de.alpharogroup.iban.BankaccountExtensions#isIbanNumber(java.lang.String)}.
 	 * 
 	 * @throws Exception
-	 *             is thrown if an error occurs when checking the given ibanNumber
+	 *             is thrown if an error occurs when checking the given
+	 *             ibanNumber
 	 */
 	@Test
-	public void testIsIbanNumber() throws Exception
-	{
+	public void testIsIbanNumber() throws Exception {
 		this.result = BankaccountExtensions.isIbanNumber(this.valideIban);
 		AssertJUnit.assertTrue("", this.result);
 		this.result = BankaccountExtensions.isIbanNumber(this.invalideIban);
@@ -73,14 +97,15 @@ public class BankaccountExtensionsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.iban.BankaccountExtensions#replaceCharsWithNumbers(java.lang.String)} .
+	 * {@link de.alpharogroup.iban.BankaccountExtensions#replaceCharsWithNumbers(java.lang.String)}
+	 * .
 	 * 
 	 * @throws Exception
-	 *             is thrown if an error occurs when tryin to replace the char with numbers
+	 *             is thrown if an error occurs when tryin to replace the char
+	 *             with numbers
 	 */
 	@Test
-	public void testReplaceCharsWithNumbers() throws Exception
-	{
+	public void testReplaceCharsWithNumbers() throws Exception {
 		String expected = "1029";
 		String compare = BankaccountExtensions.replaceCharsWithNumbers(this.atLocale);
 		this.result = expected.equals(compare);
@@ -94,4 +119,3 @@ public class BankaccountExtensionsTest
 	}
 
 }
-
