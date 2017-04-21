@@ -35,7 +35,8 @@ import org.testng.annotations.Test;
  * @version 1.0
  * @author Asterios Raptis
  */
-public class BankaccountExtensionsTest {
+public class BankaccountExtensionsTest
+{
 
 	/** The valide iban for tests. */
 	private String valideIban;
@@ -53,14 +54,14 @@ public class BankaccountExtensionsTest {
 	private String deLocale;
 
 	/**
-	 * Sets up method will be invoked before every unit test method in this
-	 * class.
+	 * Sets up method will be invoked before every unit test method in this class.
 	 *
 	 * @throws Exception
 	 *             the exception
 	 */
 	@BeforeMethod
-	protected void setUp() throws Exception {
+	protected void setUp() throws Exception
+	{
 		this.valideIban = "AT782032017000303657";
 		this.invalideIban = "AT82032017000303657";
 		this.atLocale = "AT";
@@ -68,14 +69,14 @@ public class BankaccountExtensionsTest {
 	}
 
 	/**
-	 * Tear down method will be invoked after every unit test method in this
-	 * class.
+	 * Tear down method will be invoked after every unit test method in this class.
 	 *
 	 * @throws Exception
 	 *             the exception
 	 */
 	@AfterMethod
-	protected void tearDown() throws Exception {
+	protected void tearDown() throws Exception
+	{
 	}
 
 	/**
@@ -83,11 +84,11 @@ public class BankaccountExtensionsTest {
 	 * {@link de.alpharogroup.iban.BankaccountExtensions#isIbanNumber(java.lang.String)}.
 	 * 
 	 * @throws Exception
-	 *             is thrown if an error occurs when checking the given
-	 *             ibanNumber
+	 *             is thrown if an error occurs when checking the given ibanNumber
 	 */
 	@Test
-	public void testIsIbanNumber() throws Exception {
+	public void testIsIbanNumber() throws Exception
+	{
 		this.result = BankaccountExtensions.isIbanNumber(this.valideIban);
 		AssertJUnit.assertTrue("", this.result);
 		this.result = BankaccountExtensions.isIbanNumber(this.invalideIban);
@@ -101,11 +102,11 @@ public class BankaccountExtensionsTest {
 	 * .
 	 * 
 	 * @throws Exception
-	 *             is thrown if an error occurs when tryin to replace the char
-	 *             with numbers
+	 *             is thrown if an error occurs when tryin to replace the char with numbers
 	 */
 	@Test
-	public void testReplaceCharsWithNumbers() throws Exception {
+	public void testReplaceCharsWithNumbers() throws Exception
+	{
 		String expected = "1029";
 		String compare = BankaccountExtensions.replaceCharsWithNumbers(this.atLocale);
 		this.result = expected.equals(compare);

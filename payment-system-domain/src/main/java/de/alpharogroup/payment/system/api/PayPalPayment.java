@@ -27,7 +27,8 @@ package de.alpharogroup.payment.system.api;
 /**
  * The interface {@link PayPalPayment}.
  */
-public interface PayPalPayment extends Payment {
+public interface PayPalPayment extends Payment
+{
 
 	/**
 	 * Gets the username of the paypal account

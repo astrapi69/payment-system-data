@@ -27,7 +27,8 @@ package de.alpharogroup.payment.system.api;
 /**
  * The interface {@link CreditCardPayment}.
  */
-public interface CreditCardPayment extends Payment {
+public interface CreditCardPayment extends Payment
+{
 
 	/**
 	 * Gets the card.

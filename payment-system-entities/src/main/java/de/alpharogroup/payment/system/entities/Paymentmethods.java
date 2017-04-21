@@ -40,7 +40,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Paymentmethods extends VersionableBaseEntity<Integer> implements Cloneable {
+public class Paymentmethods extends VersionableBaseEntity<Integer> implements Cloneable
+{
 
 	/** Serial Version UID */
 	private static final long serialVersionUID = 1L;

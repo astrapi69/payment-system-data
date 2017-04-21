@@ -42,17 +42,18 @@ import lombok.experimental.ExtensionMethod;
  * @author Asterios Raptis
  */
 @ExtensionMethod(StringExtensions.class)
-public class BankaccountExtensions {
+public class BankaccountExtensions
+{
 
 	/**
-	 * Array to replace a character with a number. Is needed for the iban
-	 * number.
+	 * Array to replace a character with a number. Is needed for the iban number.
 	 */
-	static final String[][] REPLACE_CHAR_WITH_NUMBER = { { "A", "10" }, { "B", "11" }, { "C", "12" }, { "D", "13" },
-			{ "E", "14" }, { "F", "15" }, { "G", "16" }, { "H", "17" }, { "I", "18" }, { "J", "19" }, { "K", "20" },
-			{ "L", "21" }, { "M", "22" }, { "N", "23" }, { "O", "24" }, { "P", "25" }, { "Q", "26" }, { "R", "27" },
-			{ "S", "28" }, { "T", "29" }, { "U", "30" }, { "V", "31" }, { "W", "32" }, { "X", "33" }, { "Y", "34" },
-			{ "Z", "35" } };
+	static final String[][] REPLACE_CHAR_WITH_NUMBER = { { "A", "10" }, { "B", "11" },
+			{ "C", "12" }, { "D", "13" }, { "E", "14" }, { "F", "15" }, { "G", "16" },
+			{ "H", "17" }, { "I", "18" }, { "J", "19" }, { "K", "20" }, { "L", "21" },
+			{ "M", "22" }, { "N", "23" }, { "O", "24" }, { "P", "25" }, { "Q", "26" },
+			{ "R", "27" }, { "S", "28" }, { "T", "29" }, { "U", "30" }, { "V", "31" },
+			{ "W", "32" }, { "X", "33" }, { "Y", "34" }, { "Z", "35" } };
 
 	/**
 	 * Checks if the ibannumber is valid.
@@ -61,27 +62,32 @@ public class BankaccountExtensions {
 	 *            The iban number.
 	 * @return true if the ibannumber is valide otherwise false.
 	 * @throws Exception
-	 *             is thrown if an error occurs when checking the given
-	 *             ibanNumber
+	 *             is thrown if an error occurs when checking the given ibanNumber
 	 */
-	public static boolean isIbanNumber(final String ibanNumber) throws Exception {
+	public static boolean isIbanNumber(final String ibanNumber) throws Exception
+	{
 		String ibanWOWS = ibanNumber;
 		// Removes the whitespaces
 		ibanWOWS = StringExtensions.replaceAll(ibanWOWS, " ", "");
 
 		// if ibanNumber is not between 5 and 34
-		if (ibanWOWS.length() > 34 || ibanWOWS.length() < 5) {
+		if (ibanWOWS.length() > 34 || ibanWOWS.length() < 5)
+		{
 			return false;
-		} else {
+		}
+		else
+		{
 			final String locale = ibanWOWS.substring(0, 2).toUpperCase();
 			final String checksum = ibanWOWS.substring(2, 4).toUpperCase();
 			final String bankAccountNumber = ibanWOWS.substring(4).toUpperCase();
 			// is not a number
-			if (!checksum.isNumber()) {
+			if (!checksum.isNumber())
+			{
 				return false;
 			}
 			// locale is not valid
-			if (!LocaleResolver.isISOCountryCode(locale)) {
+			if (!LocaleResolver.isISOCountryCode(locale))
+			{
 				return false;
 			}
 			// check the checksum
@@ -91,7 +97,8 @@ public class BankaccountExtensions {
 			final BigInteger ninetySeven = new BigInteger("97");
 			final int v = bd.mod(ninetySeven).intValue();
 			final int endsum = 98 - v;
-			if (endsum != cs) {
+			if (endsum != cs)
+			{
 				// checksum is corrupt
 				return false;
 			}
@@ -106,12 +113,16 @@ public class BankaccountExtensions {
 	 *            The code to check.
 	 * @return true if the code is valide otherwise false.
 	 */
-	protected static boolean isISOCountryCode(String code) {
-		if (code.length() == 2) {
+	protected static boolean isISOCountryCode(String code)
+	{
+		if (code.length() == 2)
+		{
 			code = code.toUpperCase();
 			final List<String> lc = Arrays.asList(Locale.getISOCountries());
 			return lc.contains(code);
-		} else {
+		}
+		else
+		{
 			return false;
 		}
 	}
@@ -123,12 +134,13 @@ public class BankaccountExtensions {
 	 *            The locale as String.
 	 * @return The formatted string.
 	 * @throws Exception
-	 *             is thrown if an error occurs when tryin to replace the char
-	 *             with numbers
+	 *             is thrown if an error occurs when tryin to replace the char with numbers
 	 */
-	public static String replaceCharsWithNumbers(final String locale) throws Exception {
+	public static String replaceCharsWithNumbers(final String locale) throws Exception
+	{
 		String retString = null;
-		if (null != locale && locale.length() != 2) {
+		if (null != locale && locale.length() != 2)
+		{
 			throw new Exception("Invalide locale.");
 		}
 		final String chr1 = locale.substring(0, 1);
