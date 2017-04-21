@@ -8,7 +8,7 @@ The project holds backend data for simple payment data.
 
 The source code comes under the liberal MIT License.
 
-# Build status and latest maven version
+# Build status
 [![Build Status](https://travis-ci.org/lightblueseas/payment-system-data.svg?branch=master)](https://travis-ci.org/lightblueseas/payment-system-data)
 
 ## Maven Central
