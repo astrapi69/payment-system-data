@@ -1,4 +1,4 @@
-# payment-system-data
+# Overview
 
 Parent project that holds module projects for the persistence of payment data. This project is in beta state and are not intended to use in production.
 
@@ -56,7 +56,9 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 			</dependency>
 			...
 		</dependencies>
-
+		 
+## Open Issues
+[![Open Issues](https://img.shields.io/github/issues/astrapi69/payment-system-data.svg?style=flat)](https://github.com/astrapi69/payment-system-data/issues) 
 
 ## Want to Help and improve it? ###
 
